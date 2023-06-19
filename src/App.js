@@ -24,100 +24,91 @@ const daysOfWeek = [
     isWeekend: true,
   },
   {
-    "name": "Monday",
-    "nameAbbr": "Mon",
-    "nameNarrow": "M",
-    "index": 1,
-    "isWeekend": false
+    name: 'Monday',
+    nameAbbr: 'Mon',
+    index: 1,
+    isWeekend: false,
   },
   {
-    "name": "Tuesday",
-    "nameAbbr": "Tue",
-    "nameNarrow": "T",
-    "index": 2,
-    "isWeekend": false
+    name: 'Tuesday',
+    nameAbbr: 'Tues',
+    index: 2,
+    isWeekend: false,
+  },
+  {
+    name: 'Wednesday',
+    nameAbbr: 'Wed',
+    index: 3,
+    isWeekend: false,
+  },
+  {
+    name: 'Thursday',
+    nameAbbr: 'Thur',
+    index: 4,
+    isWeekend: false,
+  },
+  {
+    name: 'Friday',
+    nameAbbr: 'Fri',
+    index: 5,
+    isWeekend: false,
+  },
+  {
+    name: 'Saturday',
+    nameAbbr: 'Sat',
+    index: 6,
+    isWeekend: true,
   },
   // ...
 ];
 
-const App = () => (
-  <div className={getClassName('App')}>
-    <header className={getClassName('App__header')}>
-      <div className={getClassName('App__header-inner')}>
-        <BpkText tagName="h1" textStyle="xxl" className={getClassName('App__heading')}>Flight Schedule</BpkText>
-      </div>
-    </header>
-    <div>
-        <BpkInput
-          id="dateInput"
-          type={INPUT_TYPES.text}
-          name="date"
-          placeholder="Departure date"
-        />
-        <BpkCalendar
-          id="calendar"
-          formatMonth={formatMonth}
-          formatDateFull={formatDateFull}
-          daysOfWeek={daysOfWeek}
-          weekStartsOn={1}
-          changeMonthLabel="Change month"
-          nextMonthLabel="Next month"
-          previousMonthLabel="Previous month"
-        />
-      </div>
-    <main className={getClassName('App__main')}>
-      <BpkText tagName="p" className={getClassName('App__text')}>
-        To get started, edit <BpkCode>src/App.jsx</BpkCode> and save to reload.
-      </BpkText>
-      <BpkButton onClick={() => alert('It works!')}>Click me</BpkButton>
-    </main>
-  </div>
-);
-// export default class Application {
-//   constructor() {
+export default class App extends Component {
+  constructor () {
+    super();
 
-//     this.state = {
-//       selectionConfiguration: {
-//         type: CALENDAR_SELECTION_TYPE.single,
-//         date: null,
-//       },
-//     };
-//   }
+    this.state = {
+      selectionConfiguration: {
+        type: CALENDAR_SELECTION_TYPE.single,
+        date: null,
+      }
+    };
+  }
 
-//   handleDateSelect = (date) => {
-//     this.setState({
-//       selectionConfiguration: {
-//         type: this.props.selectionConfiguration.type,
-//         date: date,
-//       },
-//     });
-//   };
+  handleDateSelect = (date) => {
+    this.setState({
+      selectionConfiguration: {
+        type: CALENDAR_SELECTION_TYPE.single,
+        date: date,
+      },
+    });
+  }
 
-//   render() {
-//     return (
-//       <div>
-//         <BpkInput
-//           id="dateInput"
-//           type={INPUT_TYPES.text}
-//           name="date"
-//           value={(this.state.selectionConfiguration.date || '').toString()}
-//           placeholder="Departure date"
-//         />
-//         <BpkCalendar
-//           id="calendar"
-//           onDateSelect={this.handleDateSelect}
-//           formatMonth={formatMonth}
-//           formatDateFull={formatDateFull}
-//           daysOfWeek={daysOfWeek}
-//           weekStartsOn={1}
-//           changeMonthLabel="Change month"
-//           nextMonthLabel="Next month"
-//           previousMonthLabel="Previous month"
-//           selectionConfiguration={this.state.selectionConfiguration}
-//         />
-//       </div>
-//     );
-//   }
-// }
-
-// export default App;
+  render () {
+    return (
+      <div className={c('App')}>
+      <header className={c('App__header')}>
+        <div className={c('App__header-inner')}>
+          <BpkText tagName="h1" textStyle="xxl" className={c('App__heading')}>Reservation Date</BpkText>
+        </div>
+      </header>
+      <main className={c('App__main')}>
+        <div>
+          <BpkCalendar
+            id='calendar'
+            onDateSelect={this.handleDateSelect}
+            formatMonth={formatMonth}
+            formatDateFull={formatDateFull}
+            daysOfWeek={daysOfWeek}
+            weekStartsOn={0}
+            changeMonthLabel="Change month"
+            nextMonthLabel="Next month"
+            previousMonthLabel="Previous month"
+            selectionConfiguration={this.state.selectionConfiguration}
+          />
+          </div>
+        <BpkButton onClick={() => alert('It works!')}>Continue</BpkButton>
+      </main>
+    </div>
+    )
+  }
+}
