@@ -2,6 +2,7 @@
 
 This is a web app that uses SkyScanner's Backpack React library to create a flight schedule interface where a user can choose a date range for which they would like to travel and find a number of flight options that are available on those certain days.
 
+# How To Run
 ## npm script commands
 
 `backpack-react-scripts` is listed as a `devDependency` in your [package.json](./package.json) and exposes the following npm scripts:
