@@ -1,13 +1,6 @@
-> _This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) +
-> [backpack-react-scripts](https://github.com/Skyscanner/backpack-react-scripts/tree/master/packages/react-scripts)._
-> It is very similar to one that you would create using [Create React App](https://github.com/facebook/create-react-app)
-> without [backpack-react-scripts](https://github.com/Skyscanner/backpack-react-scripts/tree/master/packages/react-scripts),
-> so please refer to [it's documentation](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md)
-> for more usage information.
+# Flight Schedule App
 
-# [_Put your project name here_]
-
-[_Add a brief description of your project here._]
+This is a web app that uses SkyScanner's Backpack React library to create a flight schedule interface where a user can choose a date range for which they would like to travel and find a number of flight options that are available on those certain days.
 
 ## npm script commands
 
